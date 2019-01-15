@@ -10,7 +10,7 @@ def get_html(url):
     return r.text
 
 # Creating excel-file to receive data
-def write_csv(df):
+def write_csv(data):
     with open('Creativeheads.csv', 'a') as f:
         writer = csv.writer(f)
 
