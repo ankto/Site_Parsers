@@ -2,13 +2,11 @@
 import requests
 from bs4 import BeautifulSoup
 import csv
-import pandas as pd
 
 # Taken Response to web-site
 def get_html(url):
     r = requests.get(url)
     return r.text
-
 # Creating excel-file to receive data
 def write_csv(data):
     with open('Creativeheads.csv', 'a') as f:
@@ -57,9 +55,8 @@ def get_jobs_data(html):
                 'City': city,
                 'Country': country,
                 'Link of Source': url}
-        #df = pd.DataFrame(data, data.items(), columns=['Company name', 'Title', 'City', 'Country', 'Link of Source'])
-        #print(data['Company name'])
         write_csv(data)
+
 def main():
     url = 'https://www.creativeheads.net'
     jobs_data = get_jobs_data(get_html(url))
